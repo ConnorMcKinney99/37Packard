@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
 
     // Recursive function to load sequential images
-    function loadSequential(index = 1) {
-        const src = `images/packard${index}.jpg`;  // Adjust extension if not all .jpg
+    function loadSequential(index = 925) {
+        const src = `images/IMG_0${index}.jpeg`;  // Adjust extension if not all .jpg
         const img = new Image();
 
         img.onload = () => {
@@ -41,11 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         img.onerror = () => {
-            // Stop on failure (no more images)
-            console.log(`Stopped loading at ${src}`);
-            // Show "View More" if more than 4 images
-            if (images.length > 4) {
-                viewMoreBtn.style.display = 'block';
+            viewMoreBtn.style.display = 'block';
+            if (index <996) { 
+            loadSequential(index + 1);
             }
         };
 
